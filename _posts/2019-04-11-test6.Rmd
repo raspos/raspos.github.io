@@ -1,0 +1,30 @@
+---
+title: "2019_04_11_test6"
+author: "rough"
+date: '2019 4 11 '
+output: github_document
+ 
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+## LG 트윈스 홈 평균 관중 1982~2018
+
+#### MBC 청룡시절을 포함해 LG 트윈스 홈 평균 관중 변동 추이를 살펴봤다. 
+
+```{r KBO_attendance}
+KBO_attendance %>% filter(cate == "mean", team == "LG")
+```
+
+## Including Plots
+
+```{r KBO_attendance, echo=T}
+ggplot(data = KBO_attendance %>%
+         filter(cate == "mean", year >=1982, team == "LG"), aes(x = year, y = num, color = team)) +
+  geom_line() + geom_point()
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
