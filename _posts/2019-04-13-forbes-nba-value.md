@@ -25,13 +25,13 @@ Won
 ``` r
 league <- c("mlb", "nba", "nfl", "nhl")
 
-value_usapro <- NULL
-for(i in league){
-  if(i == "mlb" | i == "nba"){
-    year <- 2012:2019
-  } else {
-    year <- 2012:2018
-  }
+value_usapro <- NULL . 
+for(i in league){ . 
+  if(i == "mlb" | i == "nba"){ . 
+    year <- 2012:2019 . 
+  } else { . 
+    year <- 2012:2018 . 
+  } . 
     for(t in year){
       a <- fromJSON(str_c('https://www.forbes.com/ajax/list/data?year=', t , '&uri=', i, '-valuations&type=organization'))
       a <- a[,c(1:10)]
