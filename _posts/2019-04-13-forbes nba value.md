@@ -59,17 +59,6 @@ value_usapro %>%  head(10)
     ## 8     cleveland-indians 2012    mlb            30.1     178        27
     ## 9      colorado-rockies 2012    mlb            14.4     193        15
     ## 10       detroit-tigers 2012    mlb             8.2     217        39
-    ##    oneYearValueChange valueList rank
-    ## 1                  13       447   23
-    ## 2                   5       508   15
-    ## 3                  12       460   19
-    ## 4                  10      1000    3
-    ## 5                  14       879    4
-    ## 6                  14       600   10
-    ## 7                  13       424   24
-    ## 8                  16       410   26
-    ## 9                  12       464   18
-    ## 10                 24       478   17
 
 # 2012년부터 2019년까지 각 리그별 가치의 합계와 평균 값을 구해봤다.
 
@@ -146,8 +135,8 @@ ggplot(data = value_sum_vs, aes(x = year, y = ave, fill = league)) +
 
 ![](github_2019-04-13_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
-#그런데 이미 2018년에 nba의 구단 평균 가치가 mlb의 구단 평균 가치를 넘어선 것을 알 수 있다. 최초는 아니다. 참고로 mlb 구단 가치는 이틀 전에 나왔다.
+#그런데 이미 작년(2018년)에 nba가 mlb를 추월했다;;; 고로 최초가 아니다. 참고로 mlb 구단 가치는 이틀 전에 발표됐다.
 
 #재작년에 이 기사<https://news.joins.com/article/21100242>를 쓸 때 엑셀 시트에 숫자를 일일 적었던 기억이 난다. R을 배우니 이렇게 편하네.
 
-#데이를 좀 더 만져봐야겠다.
+#데이터를 좀 더 만져봐야겠다.
