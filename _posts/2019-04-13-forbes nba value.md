@@ -133,7 +133,7 @@ ggplot(data = value_sum_vs, aes(x = year, y = ave, fill = league)) +
   theme_set(theme_fivethirtyeight(base_family = "AppleGothic"))
 ```
 
-![](github_2019-04-13_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+![graph](https://github.com/raspos/raspos.github.io/blob/master/_images/unnamed-chunk-5-1.png?raw=true)
 
 #그런데 이미 작년(2018년)에 nba가 mlb를 추월했다;;; 고로 최초가 아니다. 참고로 mlb 구단 가치는 이틀 전에 발표됐다.
 
