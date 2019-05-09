@@ -1,0 +1,132 @@
+---
+title: "공공기관 경영정보 공개시스템 ALIO 털기"
+output: github_document
+---
+공기업 코드
+```{r} 
+library(tidyverse)  
+library(rvest)  
+
+sheets_2018 <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vRwgSVKHbnwCmyoTSwu74QwAIoJu2ja6X6qPgKCJJaVqfIhPRjiekiYyZQLd4X9XMOX8hQUKFrnN2tf/pub?gid=0&single=true&output=csv")
+```
+
+ 
+
+url_code <- NULL
+cros7 <- NULL
+cros12 <- NULL
+cros13 <- NULL
+cro_name7 <- NULL
+cro_name12 <- NULL
+cro_name13 <- NULL
+
+for(i in 1:nrow(sheets)){
+  url_code <- str_c("http://www.alio.go.kr/popReportTerm.do?apbaId=", sheets_2018$code[i], "&reportFormRootNo=2040")
+  cro <- read_html(url_code) %>% 
+    html_table(fill = T)
+  print(sheets_2018$company[i])
+  if(length(cro) != 0){
+  for(t in 1:length(cro)){
+    cros <- cro[[t]]
+    print(str_c(t, "번째 테이블"))
+    if(ncol(cros) == 7){
+      cros7 <- rbind(cros7, cros)
+      for(k in 1:nrow(cros)){
+      name <- as.data.frame(sheets_2018$company[i])
+      cro_name7 <- rbind(cro_name7, name)  
+      }
+      } else if(ncol(cros) == 12){
+      cros12 <- rbind(cros12, cros)
+      for(k in 1:nrow(cros)){
+        name <- as.data.frame(sheets_2018$company[i])
+        cro_name12 <- rbind(cro_name12, name)  
+      }
+      } else if(ncol(cros) == 13){
+      cros13 <- rbind(cros13, cros)
+      for(k in 1:nrow(cros)){
+        name <- as.data.frame(sheets_2018$company[i])
+        cro_name13 <- rbind(cro_name13, name)  
+      }
+      } else {
+      cros <- cros  
+      }
+    }
+  } else {
+    cro <- cro
+  }
+}
+
+cro7 <- cbind(cro_name7, cros7) 
+cro12 <- cbind(cro_name12, cros12) 
+cro13 <- cbind(cro_name13, cros13) 
+
+colnames(cro7) <- c("company", "category", "2014", "2015", "2016", "2017", "2018", "2019")
+cro7 <- cro7 %>% 
+  gather(year, num, 3:8)
+cro7$num <- cro7$num %>% 
+  str_replace("\\-", "0") %>% 
+  str_remove_all(",")
+cro7$num <- as.numeric(cro7$num)
+cro7$num <- round(cro7$num, 0)
+cro7$category <- cro7$category %>% 
+  str_remove_all(" ")
+alio_hire <- cro7 %>% 
+  filter(category == "임원및정규직총신규채용") %>% 
+  select(company, year, num)
+
+colnames(cro13) <- c("company", "category", "2014_체험형", "2014_채용형", "2015_체험형", "2015_채용형", "2016_체험형", "2016_채용형", "2017_체험형", "2017_채용형", "2018_체험형", "2018_채용형", "2019_체험형", "2019_채용형")
+cro13 <- cro13 %>% 
+  filter(category != "구분")
+cro13 <- cro13 %>% 
+  gather(year_type, num, 3:14)
+cro13$num <- cro13$num %>% 
+  str_replace("-", "0") %>% 
+  str_remove(",")
+cro13$num <- as.numeric(cro13$num)
+cro13$num <- round(cro13$num, 0)
+glimpse(cro13)
+cro13 <- cro13 %>% 
+  separate(year_type, c("year", "type"), sep = "\\_")
+
+alio_intern <- cro13
+alio_intern1 <- alio_intern %>% 
+  group_by(category, year, type) %>% 
+  summarise(sum = sum(num))
+alio_intern1$sum <- round(alio_intern1$sum, 0)
+
+alio_intern2 <- alio_intern %>% 
+  filter(category == "총인턴채용", type == "채용형") %>% 
+  select(company, year, num)
+
+alio_intern_hire <- left_join(alio_hire, alio_intern2, by = c("company", "year")) 
+colnames(alio_intern_hire) <- c("company", "year", "hire_num", "intern_num")
+alio_intern_hire <- alio_intern_hire %>% 
+  mutate(rate = (hire_num / intern_num) * 100)
+alio_intern_hire$rate <- round(alio_intern_hire$rate, 0)
+alio_intern_hire1 <- alio_intern_hire %>% 
+  filter(rate < 100, year == 2018)
+alio_intern_hire2 <- alio_intern_hire %>% 
+  filter(rate < 100, year == 2017)
+
+#### 인턴십 유형별 시각화 ####
+
+ggplot(data = alio_intern1 %>% 
+         filter(category == "총인턴채용", year != 2019), aes(x = year, y = sum, fill = type)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  ggtitle("공공기관 인턴십 by year") +
+  geom_text(aes(label = sum), size = 3, vjust = -0.5, position = position_dodge(width = 1)) +
+  theme_fivethirtyeight(base_family = "AppleGothic")
+
+ggplot(data = alio_intern1 %>% 
+         filter(category == "여성", year != 2019), aes(x = year, y = sum, fill = type)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  ggtitle("공공기관 여성인턴십 by year") +
+  geom_text(aes(label = sum), size = 3, vjust = -0.5, position = position_dodge(width = 1)) +
+  theme_fivethirtyeight(base_family = "AppleGothic")
+
+ggplot(data = alio_intern1 %>% 
+         filter(category == "장애인", year != 2019), aes(x = year, y = sum, fill = type)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  ggtitle("공공기관 장애인인턴십 by year") +
+  geom_text(aes(label = sum), size = 3, vjust = -0.5, position = position_dodge(width = 1)) +
+  theme_fivethirtyeight(base_family = "AppleGothic")
