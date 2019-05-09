@@ -10,8 +10,7 @@ library(rvest)
 sheets_2018 <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vRwgSVKHbnwCmyoTSwu74QwAIoJu2ja6X6qPgKCJJaVqfIhPRjiekiYyZQLd4X9XMOX8hQUKFrnN2tf/pub?gid=0&single=true&output=csv")
 ```
 
- 
-
+```{r}
 url_code <- NULL
 cros7 <- NULL
 cros12 <- NULL
@@ -19,6 +18,46 @@ cros13 <- NULL
 cro_name7 <- NULL
 cro_name12 <- NULL
 cro_name13 <- NULL
+```
+ 
+```{r}
+for(i in 1:nrow(sheets_2018)){  
+  url_code <- str_c("http://www.alio.go.kr/popReportTerm.do?apbaId=", sheets_2018$code[i], "&reportFormRootNo=2040")  
+  cro <- read_html(url_code) %>%   
+    html_table(fill = T)  
+  print(sheets_2018$company[i])  
+  if(length(cro) != 0){  
+  for(t in 1:length(cro)){  
+    cros <- cro[[t]]  
+    print(str_c(t, "번째 테이블"))  
+    if(ncol(cros) == 7){  
+      cros7 <- rbind(cros7, cros)  
+      for(k in 1:nrow(cros)){  
+      name <- as.data.frame(sheets_2018$company[i])  
+      cro_name7 <- rbind(cro_name7, name)    
+      }  
+      } else if(ncol(cros) == 12){  
+      cros12 <- rbind(cros12, cros)  
+      for(k in 1:nrow(cros)){  
+        name <- as.data.frame(sheets_2018$company[i])  
+        cro_name12 <- rbind(cro_name12, name)    
+      }  
+      } else if(ncol(cros) == 13){  
+      cros13 <- rbind(cros13, cros)  
+      for(k in 1:nrow(cros)){  
+        name <- as.data.frame(sheets_2018$company[i])  
+        cro_name13 <- rbind(cro_name13, name)    
+      }  
+      } else {  
+      cros <- cros    
+      }  
+    }  
+  } else {  
+    cro <- cro  
+  }  
+}  
+```
+
 
 for(i in 1:nrow(sheets)){
   url_code <- str_c("http://www.alio.go.kr/popReportTerm.do?apbaId=", sheets_2018$code[i], "&reportFormRootNo=2040")
