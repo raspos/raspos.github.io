@@ -136,28 +136,25 @@ dialog.detail{width:100vw;max-width:100vw;margin:0;height:100%;max-height:100%}}
 .goals td{border:0;padding:3px 0;font-size:12px;white-space:normal}.goals td:before{content:attr(data-l);display:block;font:9px 'DM Mono';color:var(--muted);letter-spacing:.05em}.goals td.first{grid-column:1/-1}.goals td.first:before{display:none}
 .source{grid-template-columns:90px 1fr 12px;gap:8px}.foot{padding:20px 16px;gap:10px;flex-direction:column}.dl{grid-template-columns:96px 1fr}}
 @media (forced-colors:active){.stackv span,.trk span,.stack span,.dots i{forced-color-adjust:none;border:1px solid CanvasText}}
+.box>h3{margin-bottom:14px}.srcbox{border:1px solid var(--line)}.srcbox>summary{cursor:pointer;padding:16px 20px;font:12px 'DM Mono';letter-spacing:.06em;color:var(--ink2);list-style:none}.srcbox>summary::-webkit-details-marker{display:none}.srcbox>summary:after{content:" ▾";color:var(--lime)}.srcbox[open]>summary:after{content:" ▴"}.srcbox>summary:hover{color:var(--lime)}.srcbox .coverage{margin:0;padding:0 20px 20px}.srcbox .covbox{border-color:var(--line)}.srcbox .scope{padding:0 20px 20px}.srcbox .ftable th,.srcbox .ftable td{border-color:var(--line)}.srcbox .meter{background:#393b34}.srcbox .meter span{background:var(--lime)}
 </style></head><body>
 <a class="skip" href="#goals">골 기록표로 바로가기</a>
 <header class="top"><a class="brand" href="#"><b>SON</b> / GOAL MUSEUM</a><nav class="nav" aria-label="섹션"><a href="#archive">LEDGER</a><a href="#trends">TRENDS</a><a class="opt" href="#patterns">PATTERNS</a><a href="#goals">GOALS</a><a class="opt" href="#sources">SOURCES</a></nav></header>
 <main>
 <section class="hero"><div class="hero-copy"><div class="eyebrow" id="heroEyebrow">THE CAREER GOAL ARCHIVE</div><h1>SON<span>HEUNG-MIN</span></h1>
-<p class="dek">한 골은 한 장면이고, <b><span data-k="total">—</span>골은 한 선수의 시간이다.</b><br>함부르크에서 런던, 로스앤젤레스와 태극마크까지. 프로 1군 공식 경기와 A매치 득점을 한 골씩, 출처와 함께 기록한 아카이브.</p>
+<p class="dek">한 골은 한 장면이고, <b><span data-k="total">—</span>골은 한 선수의 시간이다.</b><br>함부르크에서 런던, 로스앤젤레스와 태극마크까지.</p>
 <a class="cta" href="#goals">↓ &nbsp; 골 기록 탐색하기</a></div>
 <div class="pitch-wrap"><figure class="photo"><div class="frame"><img src="assets/son-2018-world-cup-mexico.jpg" width="1280" height="953" alt="2018 FIFA 월드컵 멕시코전에서 빨간 7번 유니폼을 입은 손흥민이 공을 몰고 수비수와 맞서는 장면" decoding="async"><span class="corner tl"></span><span class="corner br"></span><button class="tag" type="button" data-goal="G118">2018.06.23 · 월드컵 멕시코전<br><b>이 경기 90+3′ 골 · 커리어 #118</b></button></div>
 <div class="vbar" id="vbar" hidden><button class="fbtn" type="button" id="vNext">▶ 다른 골</button><a class="src" id="vLink" href="#" target="_blank" rel="noreferrer">YouTube에서 보기 ↗</a></div>
 <figcaption id="photoCap">사진: Светлана Бекетова (soccer.ru) · <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noreferrer">CC BY-SA 3.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Mex-Kor_(12).jpg" target="_blank" rel="noreferrer">Wikimedia Commons</a> · 화면에 맞게 잘라 표시</figcaption></figure></div>
-<div class="stats"><div class="stat"><strong data-k="total">—</strong><span>통산 득점 · 클럽+A대표팀<br><span data-k="asof"></span> 기준</span></div><div class="stat"><strong data-k="korea">—</strong><span>A매치 득점 · 한국 남자 최다</span></div><div class="stat"><strong data-k="lvlgoal">—</strong><span>두 출처로 골 단위 확인<br>(전체 <span data-k="total"></span>골 중)</span></div></div></section>
+<div class="stats"><div class="stat"><strong data-k="total">—</strong><span>통산 득점 · 클럽+A대표팀<br><span data-k="asof"></span> 기준</span></div><div class="stat"><strong data-k="korea">—</strong><span>A매치 득점 · 한국 남자 최다</span></div><div class="stat"><strong data-k="club">—</strong><span>클럽 득점 · 함부르크·레버쿠젠<br>토트넘·LAFC</span></div></div></section>
 
 <section id="archive" class="section ledger" aria-labelledby="h-ledger"><div class="head"><div><div class="eyebrow">01 / CAREER LEDGER</div><h2 id="h-ledger">다섯 개의<br>유니폼</h2></div>
 <p class="desc lead" data-lead="ledger"></p></div>
-<p class="hint">프로 1군 공식 경기와 A매치만 셉니다(연령별 대표·유소년·친선 이벤트·승부차기 제외). 숫자 옆 링크는 그 합계를 확인한 공식 출처입니다.</p>
 <div class="ledgergrid"><div class="total"><div class="total-label">SENIOR CAREER GOALS · <span data-k="asof"></span></div><div class="num" data-k="total">—</div><small>클럽 <span data-k="club"></span> + 대한민국 A대표팀 <span data-k="korea"></span></small></div>
 <div class="breakdown" id="breakdown"></div></div>
-<div class="coverage"><div class="covbox"><h3>데이터 검증 수준</h3><div class="stack" id="lvlStack" role="img"></div><div class="legend" id="lvlLegend"></div>
-<p class="note">골 단위: Transfermarkt 골 목록과 ESPN 경기 득점 이벤트가 득점자·경기·시간(±1분)까지 일치. 경기 단위: 두 번째 출처가 경기와 득점은 확인하지만 시간은 대조하지 못함. 단일: Transfermarkt만 확인됨.</p></div>
-<div class="covbox"><h3>필드별 확보율</h3><table class="ftable" id="fieldTable"><caption class="sr">필드별로 값이 확인된 골의 수</caption><thead><tr><th scope="col">필드</th><th scope="col">확인</th><th scope="col"><span class="sr">비율</span></th></tr></thead><tbody></tbody></table></div></div>
 <div class="dots" id="dots" aria-hidden="true"></div>
-<p class="note" id="dotsNote">점 하나가 1골이며, 실제 득점 순서(<span data-k="first"></span> → <span data-k="last"></span>)대로 놓고 소속팀 색을 칠했습니다.</p></section>
+<p class="note" id="dotsNote">점 하나 = 1골 · <span data-k="first"></span> → <span data-k="last"></span></p></section>
 
 <div class="filters" id="filters" role="search" aria-label="골 기록 필터">
 <button class="fbtn ftoggle" id="ftoggle" aria-expanded="false" aria-controls="filters">필터 ▾</button>
@@ -173,40 +170,40 @@ dialog.detail{width:100vw;max-width:100vw;margin:0;height:100%;max-height:100%}}
 
 <section id="trends" class="section chartsec" aria-labelledby="h-trends"><div class="head"><div><div class="eyebrow">02 / TRENDS</div><h2 id="h-trends">꾸준함의<br>기록</h2></div>
 <p class="desc lead" data-lead="trends"></p></div>
-<p class="hint">위 필터는 모든 차트와 기록표에 함께 적용됩니다. 막대를 누르면 그 연도·시즌으로 좁혀집니다. 클럽 시즌별 보기에는 대표팀 골이 빠집니다.</p>
 <div class="box"><div class="boxhead"><div><h3 id="trendTitle">연도별 득점</h3><p class="sub" id="trendSub"></p></div>
 <div class="seg" role="group" aria-label="추이 단위"><button id="modeYear" aria-pressed="true">연도별</button><button id="modeSeason" aria-pressed="false">클럽 시즌별</button></div></div>
 <div class="legend" id="teamLegend" style="margin-bottom:6px"></div>
 <div class="vwrap"><div class="vinner" id="trendInner"><div class="vchart" id="trend"></div><div class="vlabels" id="trendLabels" aria-hidden="true"></div></div></div></div>
 <div class="grid2" style="margin-top:20px">
-<div class="box"><h3>팀별 분포</h3><p class="sub">막대를 누르면 그 팀으로 필터합니다.</p><div class="hbars" id="byTeam"></div></div>
-<div class="box"><h3>대회별 분포</h3><p class="sub">대회 안에서 팀별로 나눠 칠했습니다. 막대를 누르면 그 대회로 필터합니다.</p><div class="hbars" id="byComp"></div></div></div></section>
+<div class="box"><h3>팀별 분포</h3><div class="hbars" id="byTeam"></div></div>
+<div class="box"><h3>대회별 분포</h3><div class="hbars" id="byComp"></div></div></div></section>
 
 <section id="patterns" class="section" aria-labelledby="h-patterns"><div class="head"><div><div class="eyebrow">03 / PATTERNS</div><h2 id="h-patterns">승리<br>방정식</h2></div>
 <p class="desc lead" data-lead="patterns"></p></div>
-<p class="hint">각 카드는 출처에서 값이 확인된 골만 세고, 확인되지 않은 골은 '미상'으로 따로 표시합니다. 추가시간 골은 해당 전·후반 구간에 넣었습니다.</p>
-<div class="grid3"><div class="box"><h3>득점 시간대</h3><p class="sub">15분 구간 · 연장전 별도</p><div class="hbars" id="byMinute"></div><div class="cov" id="covMinute"></div></div>
-<div class="box"><h3>발 · 머리</h3><p class="sub">PL 127골은 리그 공식 통계(왼발 49·오른발 74·머리 4)와 일치합니다. <a class="src" href="https://www.premierleague.com/players/4999/overview" target="_blank" rel="noreferrer">PL 공식 ↗</a></p><div class="hbars" id="byBody"></div><div class="cov" id="covBody"></div></div>
-<div class="box"><h3>득점 방식</h3><p class="sub">페널티킥·직접 프리킥·직접 코너킥 외에는 모두 필드골입니다.</p><div class="hbars" id="byMethod"></div><div class="cov" id="covMethod"></div></div>
-<div class="box"><h3>홈 · 원정</h3><p class="sub">원자료의 홈·원정 표기 기준입니다(중립 경기장 구분 없음).</p><div class="hbars" id="byVenue"></div></div>
-<div class="box"><h3>경기 결과</h3><p class="sub">손흥민이 득점한 경기의 최종 결과입니다. 승부차기 승패는 무승부로 셉니다.</p><div class="hbars" id="byResult"></div></div>
-<div class="box"><h3>도움을 준 선수</h3><p class="sub">원자료에 도움 기록이 있는 골만 셉니다. 상위 8명입니다.</p><div class="hbars" id="byAssist"></div><div class="cov" id="covAssist"></div></div></div>
+<div class="grid3"><div class="box"><h3>득점 시간대</h3><div class="hbars" id="byMinute"></div><div class="cov" id="covMinute"></div></div>
+<div class="box"><h3>발 · 머리</h3><div class="hbars" id="byBody"></div><div class="cov" id="covBody"></div></div>
+<div class="box"><h3>득점 방식</h3><div class="hbars" id="byMethod"></div><div class="cov" id="covMethod"></div></div>
+<div class="box"><h3>홈 · 원정</h3><div class="hbars" id="byVenue"></div></div>
+<div class="box"><h3>경기 결과</h3><div class="hbars" id="byResult"></div></div>
+<div class="box"><h3>도움을 준 선수</h3><div class="hbars" id="byAssist"></div><div class="cov" id="covAssist"></div></div></div>
 <div class="box" style="margin-top:20px"><div class="boxhead"><div><h3>기대를 넘는 결정력</h3><p class="lead box-lead" data-lead="shots"></p><p class="sub" id="shotSub"></p></div><a class="src" href="https://understat.com/player/453" target="_blank" rel="noreferrer">Understat ↗</a></div>
-<div class="shotgrid"><div><svg class="pitchsvg" id="shotmap" viewBox="-2 -3 72 56" role="group" aria-label="득점 슈팅 위치 지도. 위쪽이 상대 골문"></svg><p class="cov">점 하나가 1골(위쪽이 상대 골문). 점을 누르면 상세 패널이 열립니다. 거리는 Understat 좌표를 105×68m 규격으로 환산한 근사값입니다.</p></div>
+<div class="shotgrid"><div><svg class="pitchsvg" id="shotmap" viewBox="-2 -3 72 56" role="group" aria-label="득점 슈팅 위치 지도. 위쪽이 상대 골문"></svg><p class="cov">점 하나 = 1골 · 위쪽이 상대 골문</p></div>
 <div><div class="kpis" id="shotKpis"></div><h3 style="font-size:13px;margin:0 0 10px">xG 구간별 골</h3><div class="hbars" id="byXg"></div><h3 style="font-size:13px;margin:18px 0 10px">슈팅 거리</h3><div class="hbars" id="byDist"></div><div class="cov" id="covShot"></div></div></div></div>
 </section>
 
-<section class="section chartsec" aria-labelledby="h-moments"><div class="head"><div><div class="eyebrow">04 / DEFINING GOALS</div><h2 id="h-moments">경기를<br>바꾼 골</h2></div><p class="desc lead" data-lead="moments"></p></div><p class="hint">카드를 누르면 그 골의 경기 정보와 원자료 링크가 열립니다.</p><div class="moments" id="moments"></div></section>
+<section class="section chartsec" aria-labelledby="h-moments"><div class="head"><div><div class="eyebrow">04 / DEFINING GOALS</div><h2 id="h-moments">경기를<br>바꾼 골</h2></div><p class="desc lead" data-lead="moments"></p></div><div class="moments" id="moments"></div></section>
 
 <section id="goals" class="section" aria-labelledby="h-goals" tabindex="-1"><div class="head"><div><div class="eyebrow">05 / GOAL LEDGER</div><h2 id="h-goals">단짝과<br>단골 상대</h2></div>
 <p class="desc lead" data-lead="goals"></p></div>
-<p class="hint">골 번호를 누르면 상세 패널이 열립니다. 빈 칸(—)은 출처에서 확인하지 못한 값입니다. 날짜는 Transfermarkt 표기일이라 미주 저녁 경기는 현지 날짜보다 하루 늦을 수 있습니다.</p>
 <div class="tablewrap"><table class="goals"><caption class="sr">필터가 적용된 손흥민 골 목록</caption><thead><tr>
 <th scope="col"><button class="sortbtn" id="sortBtn" aria-label="날짜순 정렬 전환">#  ↓</button></th><th scope="col">날짜</th><th scope="col">팀</th><th scope="col">대회</th><th scope="col">상대</th><th scope="col">홈/원정</th><th scope="col">시간</th><th scope="col">골 직후</th><th scope="col">최종</th><th scope="col">방식</th><th scope="col">발/머리</th><th scope="col">도움</th><th scope="col">xG</th><th scope="col">영상</th><th scope="col">검증</th></tr></thead><tbody id="tbody"></tbody></table></div>
 <div class="more"><span id="shown"></span><button class="fbtn" id="moreBtn">50개 더 보기</button></div></section>
 
 <section id="sources" class="section sourcearea" aria-labelledby="h-src"><div class="head"><div><div class="eyebrow">06 / DATA &amp; SOURCES</div><h2 id="h-src" data-lead-h="sources">두 출처가<br>맞춘 골</h2></div>
 <p class="desc lead" data-lead="sources"></p></div>
+<details class="srcbox"><summary>데이터 검증 · 출처 · 범위 보기</summary><div class="coverage"><div class="covbox"><h3>데이터 검증 수준</h3><div class="stack" id="lvlStack" role="img"></div><div class="legend" id="lvlLegend"></div>
+</div>
+<div class="covbox"><h3>필드별 확보율</h3><table class="ftable" id="fieldTable"><caption class="sr">필드별로 값이 확인된 골의 수</caption><thead><tr><th scope="col">필드</th><th scope="col">확인</th><th scope="col"><span class="sr">비율</span></th></tr></thead><tbody></tbody></table></div></div>
 <div class="sources">
 <a class="source" href="https://www.transfermarkt.com/heung-min-son/alletore/spieler/91845/saison//verein/0/liga/0/wettbewerb//pos/0/trainer_id/0/minute/0/torart/0/plus/1" target="_blank" rel="noreferrer"><span class="sname">TRANSFERMARKT</span><span class="stitle">골별 원자료: 날짜·대회·상대·시간·스코어·골 유형·도움 (유소년 포함 329행)</span><span class="arr">↗</span></a>
 <a class="source" href="https://www.espn.com/soccer/player/_/id/149945/heung-min-son" target="_blank" rel="noreferrer"><span class="sname">ESPN</span><span class="stitle">경기별 득점 이벤트로 교차 확인 (<span data-k="espnMatched"></span>골에 ESPN 경기 링크)</span><span class="arr">↗</span></a>
@@ -223,7 +220,7 @@ dialog.detail{width:100vw;max-width:100vw;margin:0;height:100%;max-height:100%}}
 <b>포함 범위</b> — <span data-k="scope"></span>.<br>
 <b>제외(<span data-k="excl"></span>골)</b><ul id="exclList"></ul>
 <b>출처 간 차이</b><ul><li>2022-03-24 이란전 골 직후 스코어는 Transfermarkt 2-0 대신 ESPN·위키백과의 1-0을 채택했습니다.</li><li>2019-03-26 콜롬비아전은 ESPN에 손흥민 득점이 2개로 올라 있지만, Transfermarkt·위키백과(KFA 인용) 기준 1골로 셉니다.</li><li>2018-03-07 유벤투스전의 발 정보는 두 출처가 엇갈려(오른발/왼발) 비워 두었습니다.</li></ul>
-<b>슈팅 위치·거리·xG</b> — Understat에서 프리미어리그 2015/16–2024/25와 분데스리가 2014/15의 138골을 가져왔습니다(발/머리 값이 기존 데이터와 138골 모두 일치). A매치, 컵대회, 유럽대회, MLS, 함부르크 시절 골 164개는 공개 원자료를 찾지 못해 비워 두었습니다. 도움 칸이 빈 골은 무도움인지 미기록인지 원자료로 구분할 수 없습니다.</div></section></main>
+<b>슈팅 위치·거리·xG</b> — Understat 138골(PL 2015/16–2024/25, 분데스리가 2014/15). 나머지 164골은 공개 원자료가 없어 비워 두었습니다.</div></details></div></section></main>
 <footer class="foot"><span><b>SON 7</b> / GOAL MUSEUM</span><span>DATA AS OF <span data-k="asofDot"></span> · 출처·방법은 DATA_SOURCES.md</span></footer>
 <div class="tip" id="tip" role="tooltip"></div>
 <dialog class="detail" id="detail" aria-labelledby="dTitle"><div class="dhead"><span class="eyebrow" id="dEyebrow"></span><h2 id="dTitle"></h2><p id="dSub"></p><button class="dclose" id="dClose" aria-label="상세 패널 닫기">✕</button></div><div class="dbody" id="dBody"></div></dialog>
