@@ -137,6 +137,7 @@ dialog.detail{width:100vw;max-width:100vw;margin:0;height:100%;max-height:100%}}
 .source{grid-template-columns:90px 1fr 12px;gap:8px}.foot{padding:20px 16px;gap:10px;flex-direction:column}.dl{grid-template-columns:96px 1fr}}
 @media (forced-colors:active){.stackv span,.trk span,.stack span,.dots i{forced-color-adjust:none;border:1px solid CanvasText}}
 .box>h3{margin-bottom:14px}.srcbox{border:1px solid var(--line)}.srcbox>summary{cursor:pointer;padding:16px 20px;font:12px 'DM Mono';letter-spacing:.06em;color:var(--ink2);list-style:none}.srcbox>summary::-webkit-details-marker{display:none}.srcbox>summary:after{content:" ▾";color:var(--lime)}.srcbox[open]>summary:after{content:" ▴"}.srcbox>summary:hover{color:var(--lime)}.srcbox .coverage{margin:0;padding:0 20px 20px}.srcbox .covbox{border-color:var(--line)}.srcbox .scope{padding:0 20px 20px}.srcbox .ftable th,.srcbox .ftable td{border-color:var(--line)}.srcbox .meter{background:#393b34}.srcbox .meter span{background:var(--lime)}
+#covMinute,#covBody,#covMethod,#covAssist,#covShot,.dl dd small{display:none}
 </style></head><body>
 <a class="skip" href="#goals">골 기록표로 바로가기</a>
 <header class="top"><a class="brand" href="#"><b>SON</b> / GOAL MUSEUM</a><nav class="nav" aria-label="섹션"><a href="#archive">LEDGER</a><a href="#trends">TRENDS</a><a class="opt" href="#patterns">PATTERNS</a><a href="#goals">GOALS</a><a class="opt" href="#sources">SOURCES</a></nav></header>
@@ -164,7 +165,6 @@ dialog.detail{width:100vw;max-width:100vw;margin:0;height:100%;max-height:100%}}
 <div class="f"><label for="fYear">연도</label><select id="fYear"></select></div>
 <div class="f"><label for="fSeason">시즌</label><select id="fSeason"></select></div>
 <div class="f"><label for="fOpp">상대 검색</label><input id="fOpp" type="search" placeholder="예: Arsenal, Japan" autocomplete="off"></div>
-<div class="f"><label for="fLvl">검증 수준</label><select id="fLvl"></select></div>
 <button class="fbtn reset" id="fReset">초기화</button>
 <div class="fcount" aria-live="polite"><b id="cnt">—</b> / <span data-k="total"></span>골</div></div>
 
@@ -196,7 +196,7 @@ dialog.detail{width:100vw;max-width:100vw;margin:0;height:100%;max-height:100%}}
 <section id="goals" class="section" aria-labelledby="h-goals" tabindex="-1"><div class="head"><div><div class="eyebrow">05 / GOAL LEDGER</div><h2 id="h-goals">단짝과<br>단골 상대</h2></div>
 <p class="desc lead" data-lead="goals"></p></div>
 <div class="tablewrap"><table class="goals"><caption class="sr">필터가 적용된 손흥민 골 목록</caption><thead><tr>
-<th scope="col"><button class="sortbtn" id="sortBtn" aria-label="날짜순 정렬 전환">#  ↓</button></th><th scope="col">날짜</th><th scope="col">팀</th><th scope="col">대회</th><th scope="col">상대</th><th scope="col">홈/원정</th><th scope="col">시간</th><th scope="col">골 직후</th><th scope="col">최종</th><th scope="col">방식</th><th scope="col">발/머리</th><th scope="col">도움</th><th scope="col">xG</th><th scope="col">영상</th><th scope="col">검증</th></tr></thead><tbody id="tbody"></tbody></table></div>
+<th scope="col"><button class="sortbtn" id="sortBtn" aria-label="날짜순 정렬 전환">#  ↓</button></th><th scope="col">날짜</th><th scope="col">팀</th><th scope="col">대회</th><th scope="col">상대</th><th scope="col">홈/원정</th><th scope="col">시간</th><th scope="col">골 직후</th><th scope="col">최종</th><th scope="col">방식</th><th scope="col">발/머리</th><th scope="col">도움</th><th scope="col">xG</th><th scope="col">영상</th></tr></thead><tbody id="tbody"></tbody></table></div>
 <div class="more"><span id="shown"></span><button class="fbtn" id="moreBtn">50개 더 보기</button></div></section>
 
 <section id="sources" class="section sourcearea" style="padding:40px 8vw" aria-label="데이터 출처">
@@ -220,7 +220,7 @@ dialog.detail{width:100vw;max-width:100vw;margin:0;height:100%;max-height:100%}}
 <b>제외(<span data-k="excl"></span>골)</b><ul id="exclList"></ul>
 <b>출처 간 차이</b><ul><li>2022-03-24 이란전 골 직후 스코어는 Transfermarkt 2-0 대신 ESPN·위키백과의 1-0을 채택했습니다.</li><li>2019-03-26 콜롬비아전은 ESPN에 손흥민 득점이 2개로 올라 있지만, Transfermarkt·위키백과(KFA 인용) 기준 1골로 셉니다.</li><li>2018-03-07 유벤투스전의 발 정보는 두 출처가 엇갈려(오른발/왼발) 비워 두었습니다.</li></ul>
 <b>슈팅 위치·거리·xG</b> — Understat 138골(PL 2015/16–2024/25, 분데스리가 2014/15). 나머지 164골은 공개 원자료가 없어 비워 두었습니다.</div></details></div></section></main>
-<footer class="foot"><span><b>SON 7</b> / GOAL MUSEUM</span><span>DATA AS OF <span data-k="asofDot"></span> · 출처·방법은 DATA_SOURCES.md</span></footer>
+<footer class="foot"><span><b>SON 7</b> / GOAL MUSEUM</span><span>DATA AS OF <span data-k="asofDot"></span></span></footer>
 <div class="tip" id="tip" role="tooltip"></div>
 <dialog class="detail" id="detail" aria-labelledby="dTitle"><div class="dhead"><span class="eyebrow" id="dEyebrow"></span><h2 id="dTitle"></h2><p id="dSub"></p><button class="dclose" id="dClose" aria-label="상세 패널 닫기">✕</button></div><div class="dbody" id="dBody"></div></dialog>
 <script src="data/goals.js"></script>
@@ -276,8 +276,7 @@ $('#fComp').innerHTML=opt('','전체 대회')+Object.entries(COMP).map(([k,v])=>
 const years=[...new Set(G.map(year))].sort();$('#fYear').innerHTML=opt('','전체')+years.map(y=>opt(y,y)).join('');
 const seasons=[...new Set(G.filter(g=>g.team!=='korea').map(g=>g.season))].sort((a,b)=>seasonKey(a)-seasonKey(b));
 $('#fSeason').innerHTML=opt('','전체')+'<optgroup label="유럽 클럽 시즌">'+seasons.filter(s=>s.includes('/')).map(s=>opt(s,'20'+s)).join('')+'</optgroup><optgroup label="LAFC (MLS 연도)">'+seasons.filter(s=>!s.includes('/')).map(s=>opt(s,s)).join('')+'</optgroup>';
-$('#fLvl').innerHTML=opt('','전체')+lv.map(l=>opt(l,LVL[l][0])).join('');
-const ids={team:'#fTeam',group:'#fGroup',comp:'#fComp',year:'#fYear',season:'#fSeason',lvl:'#fLvl'};
+const ids={team:'#fTeam',group:'#fGroup',comp:'#fComp',year:'#fYear',season:'#fSeason'};
 Object.entries(ids).forEach(([k,s])=>$(s).addEventListener('change',e=>{F[k]=e.target.value;update()}));
 $('#fOpp').addEventListener('input',e=>{F.opp=e.target.value.trim().toLowerCase();update()});
 $('#fReset').addEventListener('click',()=>{Object.keys(F).forEach(k=>F[k]='');syncInputs();update()});
@@ -388,7 +387,7 @@ function drawTable(){
   const rows=desc?[...current].reverse():current;
   const tb=$('#tbody');
   tb.innerHTML=rows.slice(0,limit).map(g=>{const sa=g.score_after_goal?g.score_after_goal.join('-'):null;const r=res(g);
-    return `<tr>${cell('#',`<button class="idbtn" data-id="${g.id}" aria-label="${g.career_goal_no}번째 골 상세 보기">#${g.career_goal_no}</button>`,'first')}${cell('날짜',fmtDate(g.date),'mono')}${cell('팀',`<span class="tm"><i style="background:${TC(g.team)}"></i>${TN[g.team]}</span>`)}${cell('대회',COMP[g.competition])}${cell('상대',esc(g.opponent),'opp')}${cell('홈/원정',g.venue==='home'?'홈':'원정')}${cell('시간',g.minute+"'",'mono')}${cell('골 직후',sa||dash,'mono')}${cell('최종',`${g.team_score}-${g.opponent_score} ${r==='W'?'승':r==='L'?'패':'무'}${g.decided_on_penalties?' (승부차기)':''}`,'mono')}${cell('방식',g.method?METH[g.method]:dash)}${cell('발/머리',g.body_part?BODY[g.body_part]:dash)}${cell('도움',g.assist?esc(g.assist):dash)}${cell('xG',g.understat?g.understat.xg.toFixed(2):dash,'mono')}${cell('영상',(g.goal_clip||g.highlight)?`<span style="display:inline-flex;gap:4px">${g.goal_clip?`<a class="yt" href="${g.goal_clip.url}" target="_blank" rel="noreferrer" aria-label="이 골 장면 영상, ${esc(g.goal_clip.channel)} 공식 채널, 새 탭">▶ 골</a>`:''}${g.highlight?`<a class="yt" href="${g.highlight.url}" target="_blank" rel="noreferrer" aria-label="${esc(g.opponent)}전 경기 하이라이트 영상, ${esc(g.highlight.channel)} 채널, 새 탭">▶ 경기</a>`:''}</span>`:dash)}${cell('검증',`<span class="lvl ${g.verification_level}">${LVL[g.verification_level][0]}</span>`)}</tr>`}).join('')||`<tr><td colspan="15" class="empty">조건에 맞는 골이 없습니다.</td></tr>`;
+    return `<tr>${cell('#',`<button class="idbtn" data-id="${g.id}" aria-label="${g.career_goal_no}번째 골 상세 보기">#${g.career_goal_no}</button>`,'first')}${cell('날짜',fmtDate(g.date),'mono')}${cell('팀',`<span class="tm"><i style="background:${TC(g.team)}"></i>${TN[g.team]}</span>`)}${cell('대회',COMP[g.competition])}${cell('상대',esc(g.opponent),'opp')}${cell('홈/원정',g.venue==='home'?'홈':'원정')}${cell('시간',g.minute+"'",'mono')}${cell('골 직후',sa||dash,'mono')}${cell('최종',`${g.team_score}-${g.opponent_score} ${r==='W'?'승':r==='L'?'패':'무'}${g.decided_on_penalties?' (승부차기)':''}`,'mono')}${cell('방식',g.method?METH[g.method]:dash)}${cell('발/머리',g.body_part?BODY[g.body_part]:dash)}${cell('도움',g.assist?esc(g.assist):dash)}${cell('xG',g.understat?g.understat.xg.toFixed(2):dash,'mono')}${cell('영상',(g.goal_clip||g.highlight)?`<span style="display:inline-flex;gap:4px">${g.goal_clip?`<a class="yt" href="${g.goal_clip.url}" target="_blank" rel="noreferrer" aria-label="이 골 장면 영상, ${esc(g.goal_clip.channel)} 공식 채널, 새 탭">▶ 골</a>`:''}${g.highlight?`<a class="yt" href="${g.highlight.url}" target="_blank" rel="noreferrer" aria-label="${esc(g.opponent)}전 경기 하이라이트 영상, ${esc(g.highlight.channel)} 채널, 새 탭">▶ 경기</a>`:''}</span>`:dash)}</tr>`}).join('')||`<tr><td colspan="14" class="empty">조건에 맞는 골이 없습니다.</td></tr>`;
   $('#shown').textContent=`${Math.min(limit,rows.length)} / ${rows.length}골 표시`;
   $('#moreBtn').hidden=rows.length<=limit;
 }
@@ -416,7 +415,6 @@ function openDetail(id,from){
   ${row('발/머리',g.body_part?BODY[g.body_part]:dash,g.body_part?bsrc[g.body_part_source]:'출처에서 확인되지 않음')}
   ${row('도움',g.assist?esc(g.assist):'기록 없음',g.assist_espn&&g.assist?`ESPN: ${esc(g.assist_espn)}`:(g.assist?'':'무도움 또는 미기록'))}
   ${g.understat?row('xG',g.understat.xg.toFixed(2),`Understat · 상황 ${SIT[g.understat.situation]||g.understat.situation} · 직전 동작 ${esc(g.understat.last_action)}`)+row('슈팅 거리','약 '+g.understat.distance_m+'m','Understat 좌표를 105×68m 규격으로 환산한 근사값'):row('xG·슈팅 위치',dash,'Understat 수록 범위(PL, 분데스리가 14/15) 밖이라 미확보')}
-  ${row('검증',`<span class="lvl ${g.verification_level}">${LVL[g.verification_level][0]}</span>`,LVL[g.verification_level][1])}
   </dl>${g.notes.length?`<div class="dnote"><b>출처 간 차이</b><br>${g.notes.map(esc).join('<br>')}</div>`:''}
   <div class="dsrc">${g.goal_clip?`<a href="${g.goal_clip.url}" target="_blank" rel="noreferrer"><span>▶ 이 골 장면 · ${g.goal_clip.pl_goal_no?`토트넘 공식 [손흥민 아카이브] PL ${g.goal_clip.pl_goal_no}호골`:esc(g.goal_clip.channel)+' 공식'} (YouTube)<br><small style="color:var(--muted)">${esc(g.goal_clip.title)}</small></span><span>↗</span></a>`:''}${g.highlight?`<a href="${g.highlight.url}" target="_blank" rel="noreferrer"><span>▶ 경기 하이라이트 · ${esc(g.highlight.channel)} (YouTube)<br><small style="color:var(--muted)">${esc(g.highlight.title)}</small></span><span>↗</span></a>`:`<p class="cov" style="margin:0">이 경기의 공식 채널 하이라이트 영상은 찾지 못했습니다.</p>`}${g.tm_url?`<a href="${g.tm_url}" target="_blank" rel="noreferrer"><span>Transfermarkt 경기 리포트</span><span>↗</span></a>`:''}${g.understat?`<a href="${g.understat.url}" target="_blank" rel="noreferrer"><span>Understat 경기 슈팅 지도</span><span>↗</span></a>`:''}${g.espn_url?`<a href="${g.espn_url}" target="_blank" rel="noreferrer"><span>ESPN 경기 페이지</span><span>↗</span></a>`:''}${g.team==='korea'?`<a href="https://en.wikipedia.org/wiki/Son_Heung-min#International_goals" target="_blank" rel="noreferrer"><span>A매치 골 목록 (위키백과, KFA 인용) · ${g.intl_goal_no}번</span><span>↗</span></a>`:''}</div>
   <div class="dnav"><button class="fbtn" id="dPrev">← 이전 골</button><button class="fbtn" id="dNext">다음 골 →</button></div>`;
