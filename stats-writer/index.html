@@ -29,18 +29,6 @@ summary{font-weight:700;cursor:pointer;color:#153957}details p{margin:8px 0 0}
 <button type="button" id="register">샘플 자료 등록</button>
 </div>
 <div id="desk-panel" hidden>
-<h3>기사화 대기열</h3>
-<p id="empty">등록된 샘플이 없습니다. 보도자료 업데이트에서 샘플을 등록해 보세요.</p>
-<div id="queued" hidden>
-<button type="button" id="select">가온시 11월 소매판매 동향</button>
-<div id="editor" hidden>
-<p><strong>자료 원문</strong><br>가온시의 11월 소매판매액은 120억원으로 전년 동월에 비해 4% 증가했다. 온라인과 오프라인 판매는 각각 8%, 2% 늘었다. 가온시는 온라인 판매가 전체 증가를 이끌었다고 분석했다.</p>
-<label>기사 유형 <select id="size"><option value="short">단신</option><option value="online">온라인</option></select></label>
-<button type="button" id="generate">샘플 초안 보기</button>
-<label id="draft-wrap" hidden>시연 초안 <textarea id="draft" rows="7"></textarea></label>
-</div></div></div>
-<p id="result" role="status" hidden></p>
-</section>
 <section style="margin-top:16px" aria-labelledby="release-links-title">
 <h2 id="release-links-title">기관별 공식 보도자료</h2>
 <nav style="display:flex;flex-wrap:wrap;gap:8px 16px;margin:0" aria-labelledby="release-links-title">
@@ -53,6 +41,18 @@ summary{font-weight:700;cursor:pointer;color:#153957}details p{margin:8px 0 0}
 <a href="https://www.nts.go.kr/nts/na/ntt/selectNttList.do?bbsId=1028&amp;mi=2201" target="_blank" rel="noopener noreferrer">국세청</a>
 <a href="https://www.molit.go.kr/USR/NEWS/m_71/lst.jsp" target="_blank" rel="noopener noreferrer">국토교통부</a>
 </nav>
+</section>
+<h3>기사화 대기열</h3>
+<p id="empty">등록된 샘플이 없습니다. 보도자료 업데이트에서 샘플을 등록해 보세요.</p>
+<div id="queued" hidden>
+<button type="button" id="select">가온시 11월 소매판매 동향</button>
+<div id="editor" hidden>
+<p><strong>자료 원문</strong><br>가온시의 11월 소매판매액은 120억원으로 전년 동월에 비해 4% 증가했다. 온라인과 오프라인 판매는 각각 8%, 2% 늘었다. 가온시는 온라인 판매가 전체 증가를 이끌었다고 분석했다.</p>
+<label>기사 유형 <select id="size"><option value="short">단신</option><option value="online">온라인</option></select></label>
+<button type="button" id="generate">샘플 초안 보기</button>
+<label id="draft-wrap" hidden>시연 초안 <textarea id="draft" rows="7"></textarea></label>
+</div></div></div>
+<p id="result" role="status" hidden></p>
 </section>
 </main>
 <script>
